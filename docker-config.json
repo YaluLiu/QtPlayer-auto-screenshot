@@ -1,0 +1,39 @@
+{
+    "host":"192.168.200.233",
+    "docker_list": [
+        {
+            "port": "7001",
+            "image_name": "detect_climb",
+            "api": "api_detect_climb"
+        },
+        {
+            "port": "7002",
+            "image_name": "detect_violence",
+            "api": "api_detect_violence",
+            "gpu": "0"
+        },
+        {
+            "port": "7003",
+            "image_name": "detect_crowd_abnormal",
+            "api": "api_detect_crowd_abnormal",
+            "gpu": "1"
+        },
+        {
+            "port": "7004",
+            "image_name": "detect_firearm",
+            "api": "api_detect_firearm",
+            "gpu": "2"
+        },
+        {
+            "port": "7005",
+            "image_name": "crowd_count",
+            "api": "api_crowd_count",
+            "gpu": "3"
+        },
+        {
+            "port": "7006",
+            "image_name": "detect_fire",
+            "api": "api_detect_fire"
+        }
+    ]
+}

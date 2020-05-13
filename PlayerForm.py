@@ -37,8 +37,8 @@ class PlayerForm( QMainWindow , Ui_MainWindow):
         self.scale = 5      ## 图片缩小比例
         self.img_q = queue.Queue(maxsize = self.img_num)
         self.img_lock = Lock()
-        self.detetor = detector_leader()
-        self.detetor.set_flags(self.sel_detect_dialog.flags)
+        self.detetor_leader = detector_leader()
+        self.detetor_leader.set_flags(self.sel_detect_dialog.flags)
         self.detect_fq = queue.Queue()
 
     def event_connect(self):
@@ -141,7 +141,7 @@ class PlayerForm( QMainWindow , Ui_MainWindow):
         while not self.exit_flag:
             try:
                 frame = self.detect_fq.get(timeout = 1)
-                states = self.detetor.detect(frame)
+                states = self.detetor_leader.detect(frame)
                 if True in states:
                     self.put_img(frame)
             except queue.Empty:
